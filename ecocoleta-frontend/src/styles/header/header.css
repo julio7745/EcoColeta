@@ -1,0 +1,22 @@
+.header{
+    width: 100vw;
+    height: 24%;
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #025939a4;
+}
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #cfffdb;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bolder;
+    letter-spacing: .1em;
+    text-shadow: 0px 0px 10px #012340;
+    transform: scaleY(2.5);
+    box-sizing: content-box;
+    margin-top: 20px;
+}
