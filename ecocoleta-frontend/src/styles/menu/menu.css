@@ -1,5 +1,18 @@
 .menu{
     display: flex;
-    flex-direction: row;
-    margin-top: 20px;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+    .menu{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .menu{
+        margin-top: 25px;
+        flex-direction: row;
+    }
 }

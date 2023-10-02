@@ -1,14 +1,27 @@
 .buttonMenu{
     font-family: Arial, Helvetica, sans-serif;
     color: #03A63C;
-    text-shadow: 0px 0px 10px #012340;
     transition: all 0.3s ease;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 0px 10px;
     cursor: pointer;
-    text-shadow: 0px 0px 50px #012340;
-
+    text-shadow: 0px 0px 10px #012340b7;
+    text-align: center;
+    margin-top: 3px;
 }
 .select{
     color: #eafff0;
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+    .buttonMenu{
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .buttonMenu{
+        font-size: 1.6rem;
+        margin: 0px 20px;
+    }
 }
