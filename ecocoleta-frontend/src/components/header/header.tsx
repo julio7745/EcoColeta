@@ -2,9 +2,7 @@
 import React from 'react';
 import '../../styles/header/header.css';
 
-import Menu from '../menu/menu'
-
-import logo from '../../assets/imgs/icos/plantinha.png';
+import Menu from '../menu/menu';
 
 interface HeaderProps {
   currentPage: string,
@@ -17,7 +15,7 @@ function Header(props: HeaderProps) {
     <div className='header'>
       <div className='container'>
         <div className="title">Eco Coleta</div>
-        <img src={logo} alt="LOGO"/>
+        <div className="logo"></div>
       </div>
       <Menu {...{
         currentPage: props.currentPage,
