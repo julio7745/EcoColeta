@@ -1,6 +1,14 @@
 .coletaButton{
     margin: 5px;
-    background-color: rgb(168, 0, 0);
     padding: 10px;
     display: inline-block;
+    width: 70px;
+    text-align: center;
+    border: 1px solid black;
+}
+.editar{
+    background-color: #008000;
+}
+.apagar{
+    background-color: #a80000;
 }

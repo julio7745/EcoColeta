@@ -22,7 +22,7 @@ function Coleta(props: ColetaFace) {
             <p>Volume: {props.volume}</p>
             <p>Cliente: {props.cliente}</p>
             <ColetaButton {...{
-                coleta: props.n,
+                n: props.n,
             }}/>
         </div>
     );

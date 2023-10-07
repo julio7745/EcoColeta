@@ -10,9 +10,7 @@ const newColeta = async (req: Request, res: Response) => {
   try {
 
     const coletas = await Coleta.find();
-    
-    console.log(coletas.length + 1);
-    
+        
     const coleta = new Coleta({
       n: coletas.length + 1,
       material: material,

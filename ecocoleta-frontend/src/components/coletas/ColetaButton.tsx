@@ -1,16 +1,36 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 
 import '../../styles/coletas/coletaButton.css';
 
+import ConfirmarDelecao from './ConfirmarDelecao'
+
 interface coletaButton {
-    coleta: Number,
+    n: number,
 }
 
 function ColetaButton(props: coletaButton) {
 
+    const [mostraConfirmacao, setMostraConfirmacao] = useState('confirmacao')
+
     return (
-        <div className='coletaButton' >Editar</div>
+        <div>
+            <div className='coletaButton editar' >Editar</div>
+            <div className='coletaButton apagar' 
+                onClick={()=>setMostraConfirmacao('confirmacao visible')}
+            >
+                Apagar
+            </div>
+
+            {
+                mostraConfirmacao && (
+                    <ConfirmarDelecao {...{
+                        mostraConfirmacao,
+                        setMostraConfirmacao,
+                        n: props.n
+                    }}/>
+                )
+            }
+        </div>
     )
 
 }
