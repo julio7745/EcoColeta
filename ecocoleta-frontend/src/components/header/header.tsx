@@ -2,7 +2,7 @@
 import React from 'react';
 import '../../styles/header/header.css';
 
-import Menu from '../menu/menu';
+import Menu from '../menu/Menu';
 
 interface HeaderProps {
   currentPage: string,

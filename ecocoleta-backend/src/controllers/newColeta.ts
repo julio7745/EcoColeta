@@ -5,25 +5,31 @@ import Coleta from '../models/coletasModel'
 
 const newColeta = async (req: Request, res: Response) => {
   
+  const { n, material, massa, volume, cliente } = req.body;
+
   try {
+
+    console.log(req.body);
     
     const coleta = new Coleta({
-      n: 1,
-      material: 'plastico',
-      massa: 40,
-      volume: 20,
-      cliente: 'julio',
+      n: n,
+      material: material,
+      massa: massa,
+      volume: volume,
+      cliente: cliente,
     });
   
     await coleta.save();
 
-    res.send('sucess')
+    res.send({status: 'sucesso'})
+    return;
 
   } catch (error) {
     console.log(Error);
   }
-  
-  res.send('failure')
+
+  res.send({status: 'falhou'})
+
 }
 
 export default newColeta;

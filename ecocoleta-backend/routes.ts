@@ -8,6 +8,6 @@ import newColetas from './src/controllers/newColeta'
 const router = express.Router();
 
 router.get('/getColetas', (req: Request, res: Response) => getColetas(req, res))
-router.get('/newColeta', (req: Request, res: Response) => newColetas(req, res))
+router.post('/newColeta', (req: Request, res: Response) => newColetas(req, res))
 
 export default router;

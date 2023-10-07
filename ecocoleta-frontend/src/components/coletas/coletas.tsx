@@ -5,7 +5,7 @@ import jwtDecode from 'jwt-decode';
 
 import '../../styles/coletas/coletas.css';
 
-import Coleta from './Coleta';
+import Coleta from './ColetaText';
 
 interface ColetaFace {
   n: number;
@@ -27,8 +27,6 @@ function Coletas() {
       
       const response = await axios.get('http://192.168.18.154:3024/getColetas');
       const coletasData = jwtDecode(response.data.token) as coletasFace; 
-      
-      console.log(coletasData.coletas || []);
       
       setColetas( coletasData.coletas || []);
       

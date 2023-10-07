@@ -2,7 +2,7 @@
 import React from 'react';
 import '../../styles/menu/menu.css';
 
-import ButtonMenu from './buttonMenu';
+import ButtonMenu from './ButtonMenu';
 
 interface HeaderProps {
   currentPage: string,

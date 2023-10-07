@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './styles/App.css';
 
-import Header from './components/header/header';
-import Coletas from "./components/coletas/coletas";
-import Footer from "./components/footer/footer";
+import Header from './components/header/Header';
+import Coletas from "./components/coletas/Coletas";
+import NewColeta from "./components/newColeta/NewColeta";
+import Footer from "./components/footer/Footer";
 
 function App() {
   
@@ -17,7 +18,7 @@ function App() {
       }}/>
       {
         currentPage === 'Coletas' ?  <Coletas/> :           
-        currentPage === 'Nova coleta' ? 'Nova coleta' :
+        currentPage === 'Nova coleta' ? <NewColeta/> :
         currentPage === 'Relatórios' ? 'Relatórios' :
         <Coletas/>
       }
