@@ -9,7 +9,8 @@
     width: 70px;
     justify-items: center;
     margin: 2px;
-    font-size: .9rem;
+    font-size: .8rem;
+    margin-bottom: 5px;
 }
 .campForm input{
     width: 100px;
@@ -17,8 +18,8 @@
 
 @media screen and (min-width: 300px){
     .campForm label{
-        width: 75px;
-        font-size: 1.1rem;
+        width: 90px;
+        font-size: 1rem;
         margin-bottom: 5px;
     }
     .campForm input{
@@ -30,7 +31,7 @@
 
 @media screen and (min-width: 500px){
     .campForm label{
-        width: 85px;
+        width: 110px;
         font-size: 1.2rem;
         padding: 3px;
     }

@@ -9,12 +9,9 @@
 }
 .formNewColeta p {
     display: block;
-    width: fit-content;
-    margin: auto;
-    margin-top: -10px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: large;
+    width: 150px;
+    margin: -5px auto 10px auto;
+    font-size: .9rem;
 }
 .erro{
     color: #ff0000;
@@ -33,6 +30,12 @@
     .formNewColeta{
         padding: 20px 0px;
     }
+    .formNewColeta p {
+        width: 250px;
+        margin-bottom: 20px;
+        font-size: 1rem;
+        text-align: center;
+    }
     .formNewColeta button{
         width: 150px;
         font-size: 1.1rem;
@@ -41,11 +44,17 @@
 
 @media screen and (min-width: 500px){
     .formNewColeta{
-        padding: 40px 0px;
+        padding: 30px 0px;
+    }
+    .formNewColeta p {
+        width: 450px;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
     }
     .formNewColeta button{
         width: 200px;
         font-size: 1.3rem;
         padding: 5px;
     }
+    
 }

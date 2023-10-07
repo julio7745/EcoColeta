@@ -1,6 +1,8 @@
 
 import axios from "axios"
 
+import ValiaFormDeColetas from "./validaFormDeColeta"
+
 interface dados{
     cliente: string,
     massa: string,
@@ -17,6 +19,8 @@ interface armazenaColetaProps {
 }
 
 const armazenaColeta = async (props: armazenaColetaProps) => {
+
+    const erros = ValiaFormDeColetas(props.dados)
     
     try {
 
