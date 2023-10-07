@@ -1,0 +1,29 @@
+.container{
+    background-color: #ffffffe1;
+    height: auto;
+    width: 100%;
+    margin: auto;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.alert{
+    padding: 10px;
+    text-align: center;
+}
+
+@media screen and (min-width: 300px)  and (max-width: 500px) {
+    .alert{
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .alert{
+        padding: 30px;
+        text-align: center;
+    }
+}

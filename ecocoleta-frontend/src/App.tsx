@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './styles/App.css';
 
 import Header from './components/header/header';
+import Coletas from "./components/coletas/coletas";
+import Footer from "./components/footer/footer";
 
 function App() {
   
@@ -13,7 +15,13 @@ function App() {
         currentPage: currentPage,
         setCurrentPage: setCurrentPage, 
       }}/>
-      {currentPage}
+      {
+        currentPage === 'Coletas' ?  <Coletas/> :           
+        currentPage === 'Nova coleta' ? 'Nova coleta' :
+        currentPage === 'Relatórios' ? 'Relatórios' :
+        <Coletas/>
+      }
+      <Footer/>
     </div>
   );
 }

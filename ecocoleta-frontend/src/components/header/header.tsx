@@ -13,7 +13,7 @@ function Header(props: HeaderProps) {
 
   return(
     <div className='header'>
-      <div className='container'>
+      <div className='titleContainer'>
         <div className="title">Eco Coleta</div>
         <div className="logo"></div>
       </div>

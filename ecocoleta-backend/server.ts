@@ -2,6 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import cors from 'cors'
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 import routes from './routes';
 
+app.use(cors());
 app.use(routes);
 
 app.on('conected', () => { 
