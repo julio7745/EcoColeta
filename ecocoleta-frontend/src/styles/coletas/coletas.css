@@ -6,7 +6,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 40px;
 }
 .alert{
     padding: 10px;

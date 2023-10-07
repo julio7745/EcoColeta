@@ -2,10 +2,8 @@
     color: #ffffff;
     width: 100%;
     height: auto;
-    position: absolute;
-    left: 0;
-    bottom: 10px;
     text-align: center;
-    text-shadow: 0 0 10px #012340;
-
+    text-shadow: 0 0 10px #012340; 
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

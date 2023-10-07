@@ -5,12 +5,11 @@
     padding: 10px 0px;
     margin-bottom: 40px;
     justify-content: center;
-    margin-bottom: 40px;
 }
 .formNewColeta p {
     display: block;
     width: 150px;
-    margin: -5px auto 10px auto;
+    margin: 0px auto 10px auto;
     font-size: .9rem;
 }
 .erro{
@@ -32,7 +31,7 @@
     }
     .formNewColeta p {
         width: 250px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         font-size: 1rem;
         text-align: center;
     }

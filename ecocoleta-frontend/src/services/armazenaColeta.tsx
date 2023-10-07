@@ -1,7 +1,7 @@
 
 import axios from "axios"
 
-import ValiaFormDeColetas from "./validaFormDeColeta"
+import ValidaFormDeColetas from "./validaFormDeColeta"
 
 interface dados{
     cliente: string,
@@ -13,36 +13,46 @@ interface dados{
 interface armazenaColetaProps {
     setMensagem: (mensagem: string) => void,
     setClassName: (className: string) => void,
-    setDados: (Dados: dados) => void,
     setExibirMensagem: (className: boolean) => void,
+    setDados: (Dados: dados) => void,
     dados: dados
 }
 
 const armazenaColeta = async (props: armazenaColetaProps) => {
 
-    const erros = ValiaFormDeColetas(props.dados)
+    const erro = await ValidaFormDeColetas({...{dados: props.dados, setDados: props.setDados, }});
     
-    try {
+    if (erro) {
 
-        await axios.post('http://192.168.18.154:3024/newColeta', props.dados);
-
-        props.setMensagem('Coleta armazenada com sucesso!'); 
-        props.setClassName('sucesso')
-
-    } catch (error) {
-
-        props.setMensagem('Falha ao armazenar a coleta!'); 
+        props.setMensagem(erro)
         props.setClassName('erro')
-        console.error('Erro ao armazenar coleta.', error);
+
+    }else{
+
+        try {
+
+            await axios.post('http://192.168.18.154:3024/newColeta', props.dados);
+    
+            props.setMensagem('Coleta armazenada com sucesso!'); 
+            props.setClassName('sucesso')
+
+            props.setDados({
+                cliente: '',
+                massa: '',
+                volume: '',
+                material: '',
+            });
+    
+        } catch (error) {
+    
+            props.setMensagem('Falha ao armazenar a coleta!'); 
+            props.setClassName('erro')
+            console.error('Erro ao armazenar coleta.', error);
+    
+        }
 
     }
 
-    props.setDados({
-        cliente: '',
-        massa: '',
-        volume: '',
-        material: '',
-    });
     props.setExibirMensagem(true)
 
 }

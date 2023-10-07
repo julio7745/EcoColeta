@@ -36,7 +36,7 @@ function FormCamp(props: FormCampProps) {
     return (
         <div className='campForm'>
             <label htmlFor={props.name}>
-                {capitalizeFirstLetter(props.name)} {props.name === 'massa'? '(kg)' : props.name === 'volume' ? '(L)' : 1}: 
+                {capitalizeFirstLetter(props.name)} {props.name === 'massa'? '(kg)' : props.name === 'volume' ? '(L)' : ''}: 
             </label>
             <input
                 type='text'
