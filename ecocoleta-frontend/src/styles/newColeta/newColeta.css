@@ -1,5 +1,51 @@
 .formNewColeta{
+    background-color: #ffffffe1;
+    height: auto;
     width: 100%;
-    height: 90px;
-    background-color: red;
+    padding: 10px 0px;
+    margin-bottom: 40px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.formNewColeta p {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: large;
+}
+.erro{
+    color: #ff0000;
+}
+.sucesso{
+    color: #008000;
+}
+.formNewColeta button{
+    display: block;
+    width: 100px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 300px){
+    .formNewColeta{
+        padding: 20px 0px;
+    }
+    .formNewColeta button{
+        width: 150px;
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .formNewColeta{
+        padding: 40px 0px;
+    }
+    .formNewColeta button{
+        width: 200px;
+        font-size: 1.3rem;
+        padding: 5px;
+    }
 }

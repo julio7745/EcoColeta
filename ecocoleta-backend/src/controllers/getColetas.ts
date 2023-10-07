@@ -10,7 +10,7 @@ const getColetas = async (req: Request, res: Response) => {
 
     const coletas = await Coleta.find();
    
-    const token = jwt.sign({ coletas: coletas}, 'secretpassword');
+    const token = jwt.sign({ coletas: coletas.reverse()}, 'secretpassword');
     res.json({ token });
     
   } catch (error) {

@@ -1,0 +1,42 @@
+.campForm{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+.campForm label{
+    display: inline-block;
+    width: 70px;
+    justify-items: center;
+    margin: 2px;
+    font-size: .9rem;
+}
+.campForm input{
+    width: 100px;
+}
+
+@media screen and (min-width: 300px){
+    .campForm label{
+        width: 75px;
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+    .campForm input{
+        width: 170px;
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .campForm label{
+        width: 85px;
+        font-size: 1.2rem;
+        padding: 3px;
+    }
+    .campForm input{
+        width: 300px;
+        font-size: 1.2rem;
+        padding: 3px;
+    }
+}

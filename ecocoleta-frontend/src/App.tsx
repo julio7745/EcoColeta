@@ -18,7 +18,9 @@ function App() {
       }}/>
       {
         currentPage === 'Coletas' ?  <Coletas/> :           
-        currentPage === 'Nova coleta' ? <NewColeta/> :
+        currentPage === 'Nova coleta' ? <NewColeta {...{
+          setCurrentPage: setCurrentPage, 
+        }}/> :
         currentPage === 'Relatórios' ? 'Relatórios' :
         <Coletas/>
       }

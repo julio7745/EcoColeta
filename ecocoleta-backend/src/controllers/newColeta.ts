@@ -23,14 +23,14 @@ const newColeta = async (req: Request, res: Response) => {
   
     await coleta.save();
 
-    res.send({status: 'sucesso'})
+    res.send(200)
     return;
 
   } catch (error) {
     console.log(Error);
   }
-
-  res.send({status: 'falhou'})
+  
+  res.send(500)
 
 }
 
