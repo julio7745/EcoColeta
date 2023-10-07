@@ -1,17 +1,17 @@
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
-const aberturaSchema = new Schema({
+const coletaSchema = new Schema({
 
     n: { type: Number, required: true, unique: true },
     material: { type: String, required: true },
-    massa: { type: String, required: true },
-    volume: { type: String, required: true },
+    massa: { type: Number, required: true },
+    volume: { type: Number, required: true },
     cliente: { type: String, required: true },
     
 });
 
-const Abertura = mongoose.model('user', aberturaSchema);
+const Coleta = mongoose.model('coleta', coletaSchema);
 
-export default Abertura;
+export default Coleta;

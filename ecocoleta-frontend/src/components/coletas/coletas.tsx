@@ -25,7 +25,7 @@ function Coletas() {
   const fetchData = async () => {
     try {
       
-      const response = await axios.get('http://192.168.18.154:3024/coletas');
+      const response = await axios.get('http://192.168.18.154:3024/getColetas');
       const coletasData = jwtDecode(response.data.token) as coletasFace; 
       
       console.log(coletasData.coletas || []);

@@ -2,10 +2,12 @@
 import { Request, Response } from 'express';
 import express from 'express';
 
-import coletas from './src/controllers/coletas'
+import getColetas from './src/controllers/getColetas'
+import newColetas from './src/controllers/newColeta'
 
 const router = express.Router();
 
-router.get('/coletas', (req: Request, res: Response) => coletas(req, res))
+router.get('/getColetas', (req: Request, res: Response) => getColetas(req, res))
+router.get('/newColeta', (req: Request, res: Response) => newColetas(req, res))
 
 export default router;
