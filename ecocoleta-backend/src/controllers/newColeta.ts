@@ -1,18 +1,20 @@
 
 import { Request, Response } from 'express';
 
-import Coleta from '../models/coletasModel'
+import Coleta from '../models/coletaModel'
 
 const newColeta = async (req: Request, res: Response) => {
   
-  const { n, material, massa, volume, cliente } = req.body;
+  const { material, massa, volume, cliente } = req.body;
 
   try {
 
-    console.log(req.body);
+    const coletas = await Coleta.find();
+    
+    console.log(coletas.length + 1);
     
     const coleta = new Coleta({
-      n: n,
+      n: coletas.length + 1,
       material: material,
       massa: massa,
       volume: volume,
