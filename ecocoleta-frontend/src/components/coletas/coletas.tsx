@@ -1,24 +1,27 @@
 
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import React, { useState, useEffect } from 'react';
 
 import '../../styles/coletas/coletas.css';
 
 import Coleta from './ColetaText';
 
 interface ColetaFace {
-  _id: string;
-  material: string;
-  massa: string;
-  volume: string;
-  cliente: string;
+  _id: string,
+  massa: string,
+  volume: string,
+  cliente: string,
+  material: string,
 }
 interface coletasFace {
-  coletas: ColetaFace[]
+  coletas: ColetaFace[],
 }
 interface coletasProps {
-  setClassNameOfLoading: (className: string) => void
+  setCurrentPage: (_: string) => void,
+  setEditOrCreate: (_: string) => void,
+  setColetaEmEdicao: (_: ColetaFace) => void,
+  setClassNameOfLoading: (_: string) => void,
 }
 
 function Coletas(props: coletasProps) {
@@ -27,7 +30,7 @@ function Coletas(props: coletasProps) {
   
   const fetchData = async () => {
       
-    props.setClassNameOfLoading('loading true')
+    props.setClassNameOfLoading('loading true');
     
     try {
       
@@ -40,7 +43,7 @@ function Coletas(props: coletasProps) {
       console.error('Erro ao buscar coletas:', error);
     }
     
-    props.setClassNameOfLoading('loading')
+    props.setClassNameOfLoading('loading');
     
   }
 
@@ -60,15 +63,13 @@ function Coletas(props: coletasProps) {
       <div className='container'>
         {
           coletas.map(coleta => (
-            <Coleta {
-              ...{
+            <Coleta {...{
+              coleta,
               key: coleta._id,
-              _id: coleta._id,
-              material: coleta.material,
-              massa: coleta.massa,
-              volume: coleta.volume,
-              cliente: coleta.cliente,
-              setClassNameOfLoading: props.setClassNameOfLoading 
+              setCurrentPage: props.setCurrentPage,
+              setEditOrCreate: props.setEditOrCreate,
+              setColetaEmEdicao: props.setColetaEmEdicao, 
+              setClassNameOfLoading: props.setClassNameOfLoading,
             }}/>
           ))
         }

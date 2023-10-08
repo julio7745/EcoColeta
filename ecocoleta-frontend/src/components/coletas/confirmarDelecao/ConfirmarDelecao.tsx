@@ -4,12 +4,11 @@ import React from 'react';
 
 import '../../../styles/coletas/confirmarDelecao.css';
 
-
 interface ConfirmarDelecaoProps {
-    mostraConfirmacao: string,
     _id: string,
-    setMostraConfirmacao: (className: string) => void,
-    setClassNameOfLoading: (className: string) => void
+    mostraConfirmacao: string,
+    setMostraConfirmacao: (_: string) => void,
+    setClassNameOfLoading: (_: string) => void,
 }
 
 function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
@@ -42,7 +41,7 @@ function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ConfirmarDelecao;

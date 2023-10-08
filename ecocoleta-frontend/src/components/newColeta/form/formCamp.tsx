@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import '../../../styles/newColeta/formCamp.css';
 
@@ -20,10 +20,21 @@ interface FormCampProps {
     dados: dados,
     setDados: Function,
     name: DataKeys,
-    type: string
+    type: string,
+    coletaEmEdicao: dados,
+    editOrCreate: string,
 }
 
 function FormCamp(props: FormCampProps) {
+
+    const loadData = async () => {
+        if(props.editOrCreate === 'edit'){
+            props.setDados(props.coletaEmEdicao)
+        }
+    }
+    
+    // eslint-disable-next-line
+    useEffect(() => { loadData() }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;

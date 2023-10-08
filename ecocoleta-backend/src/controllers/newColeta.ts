@@ -8,7 +8,7 @@ const newColeta = async (req: Request, res: Response) => {
   const { material, massa, volume, cliente } = req.body;
 
   try {
-
+    
     const coleta = new Coleta({
       material: material,
       massa: parseFloat(massa),

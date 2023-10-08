@@ -6,25 +6,34 @@ import '../../styles/coletas/coleta.css';
 import ColetaButton from './ColetaButton';
 
 interface ColetaFace {
-    _id: string;
-    material: string;
-    massa: string;
-    volume: string;
-    cliente: string;
-    setClassNameOfLoading: (className: string) => void
+    _id: string,
+    massa: string,
+    volume: string,
+    cliente: string,
+    material: string,
+}
+interface ColetaProps {
+    coleta: ColetaFace
+    setCurrentPage: (_: string) => void,
+    setEditOrCreate: (_: string) => void,
+    setColetaEmEdicao: (_: ColetaFace) => void,
+    setClassNameOfLoading: (_: string) => void,
 }
 
-function Coleta(props: ColetaFace) {
+function Coleta(props: ColetaProps) {
   
     return (
         <div className='coleta'>
-            <p>Material: {props.material}</p>
-            <p>Massa: {props.massa}</p>
-            <p>Volume: {props.volume}</p>
-            <p>Cliente: {props.cliente}</p>
+            <p>Cliente: {props.coleta.cliente}</p>
+            <p>Material: {props.coleta.material}</p>
+            <p>Massa: {props.coleta.massa}</p>
+            <p>Volume: {props.coleta.volume}</p>
             <ColetaButton {...{
-                _id: props._id,
-                setClassNameOfLoading: props.setClassNameOfLoading 
+                coleta: props.coleta,
+                setCurrentPage: props.setCurrentPage,
+                setEditOrCreate: props.setEditOrCreate,
+                setColetaEmEdicao: props.setColetaEmEdicao,
+                setClassNameOfLoading: props.setClassNameOfLoading ,
             }}/>
         </div>
     );

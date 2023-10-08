@@ -3,10 +3,20 @@ import React from 'react';
 
 import '../../styles/menu/buttonMenu.css';
 
+interface ColetaFace {
+  _id: string,
+  massa: string,
+  volume: string,
+  cliente: string,
+  material: string,
+}
 interface HeaderProps {
   page: string,
   currentPage: string,
-  setCurrentPage: (page: string) => void,
+  editOrCreate: string,
+  setCurrentPage: (_: string) => void,
+  setEditOrCreate: (_: string) => void, 
+  setColetaEmEdicao: (_: ColetaFace) => void,
 }
 
 function ButtonMenu(props: HeaderProps) {
@@ -16,9 +26,24 @@ function ButtonMenu(props: HeaderProps) {
   return(
     <div 
       className={className}  
-      onClick={()=>props.setCurrentPage(props.page)}
+      onClick={()=>{
+        if(props.page !== 'Nova coleta'){
+          props.setEditOrCreate('create')
+          props.setColetaEmEdicao({
+            _id: '',
+            massa: '',
+            volume: '',
+            cliente: '',
+            material: '',
+          })
+        }
+        props.setCurrentPage(props.page)
+      }}
     >
-      {props.page}
+      {props.page === 'Nova coleta' && props.editOrCreate === "create" ? props.page : 
+        props.page === 'Nova coleta' && props.editOrCreate === "edit" ? "Editar coleta" : 
+        props.page
+      }
     </div>
   )
 }

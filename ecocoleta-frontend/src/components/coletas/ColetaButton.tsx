@@ -5,9 +5,19 @@ import '../../styles/coletas/coletaButton.css';
 
 import ConfirmarDelecao from './confirmarDelecao/ConfirmarDelecao'
 
-interface coletaButton {
+interface ColetaFace {
     _id: string,
-    setClassNameOfLoading: (className: string) => void
+    massa: string,
+    volume: string,
+    cliente: string,
+    material: string,
+}
+interface coletaButton {
+    coleta: ColetaFace,
+    setCurrentPage: (_: string) => void,
+    setEditOrCreate: (_: string) => void,
+    setColetaEmEdicao: (_: ColetaFace) => void,
+    setClassNameOfLoading: (_: string) => void,
 }
 
 function ColetaButton(props: coletaButton) {
@@ -16,7 +26,19 @@ function ColetaButton(props: coletaButton) {
 
     return (
         <div>
-            <div className='coletaButton editar' >Editar</div>
+            <div className='coletaButton editar' onClick={
+                () => {
+                    props.setEditOrCreate('edit');
+                    props.setCurrentPage('Nova coleta');
+                    props.setColetaEmEdicao({
+                        _id: props.coleta._id,
+                        massa: props.coleta.massa,
+                        volume: props.coleta.volume,
+                        cliente: props.coleta.cliente,
+                        material: props.coleta.material,
+                    });
+                }
+            }>Editar</div>
             <div className='coletaButton apagar' onClick={
                 () => setTimeout(()=>setMostraConfirmacao('confirmacao visible'), 100)
             }> Apagar </div>
@@ -25,13 +47,13 @@ function ColetaButton(props: coletaButton) {
                     <ConfirmarDelecao {...{
                         mostraConfirmacao,
                         setMostraConfirmacao,
-                        _id: props._id,
-                        setClassNameOfLoading: props.setClassNameOfLoading 
+                        _id: props.coleta._id,
+                        setClassNameOfLoading: props.setClassNameOfLoading,
                     }}/>
                 )
             }
         </div>
-    )
+    );
 }
 
 export default ColetaButton;

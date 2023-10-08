@@ -7,9 +7,18 @@ import FormCamp from './form/FormCamp'
 
 import armazenaColeta from '../../services/armazenaColeta'
 
+interface ColetaFace {
+  _id: string,
+  massa: string,
+  volume: string,
+  cliente: string,
+  material: string,
+}
 interface NewColetaProps {
-  setCurrentPage: (page: string) => void,
-  setClassNameOfLoading: (className: string) => void,
+  editOrCreate: string,
+  coletaEmEdicao: ColetaFace,
+  setCurrentPage: (_: string) => void,
+  setClassNameOfLoading: (_: string) => void,
 }
 
 function NewColeta(props: NewColetaProps) {
@@ -23,43 +32,56 @@ function NewColeta(props: NewColetaProps) {
 
   const [mensagem, setMensagem] = useState('');
   const [exibirMensagem, setExibirMensagem] = useState(false);
-  const [className, setClassName] = useState('');
+  const [ClassNameOfFeedback, setClassNameOfFeedback] = useState('');
   
   return (
     <div className='formNewColeta'>
-      { exibirMensagem && <p className={className}>{mensagem}</p> }     
+      { exibirMensagem && <p className={ClassNameOfFeedback}>{mensagem}</p> }     
       <FormCamp {...{
         dados,
         setDados,
         name: 'cliente',
-        type: 'text'
+        type: 'text',
+        editOrCreate: props.editOrCreate,
+        coletaEmEdicao: props.coletaEmEdicao,
       }}/>
       <FormCamp {...{
         dados,
         setDados,
         name: 'material',
-        type: 'text'
+        type: 'text',
+        editOrCreate: props.editOrCreate,
+        coletaEmEdicao: props.coletaEmEdicao,
       }}/>
       <FormCamp {...{
         dados,
         setDados,
         name: 'massa',
-        type: 'number'
+        type: 'number',
+        editOrCreate: props.editOrCreate,
+        coletaEmEdicao: props.coletaEmEdicao,
       }}/>
       <FormCamp {...{
         dados,
         setDados,
         name: 'volume',
-        type: 'number'
+        type: 'number',
+        editOrCreate: props.editOrCreate,
+        coletaEmEdicao: props.coletaEmEdicao,
       }}/>
-      <button onClick={()=>armazenaColeta({...{
-        setMensagem,
-        setClassName,
-        setDados,
-        setExibirMensagem,
-        dados,
-        setClassNameOfLoading: props.setClassNameOfLoading
-      }})}>Criar Coleta</button>
+      <button onClick={
+        ()=>{
+          armazenaColeta({...{
+            dados,
+            setMensagem,
+            setClassNameOfFeedback,
+            setDados,
+            setExibirMensagem,
+            setClassNameOfLoading: props.setClassNameOfLoading,
+            editOrCreate: props.editOrCreate
+          }})
+        }
+      }>{ props.editOrCreate === 'edit' ? 'Salvar coleta' : 'Criar Coleta' }</button>
     </div>
   )
 }
