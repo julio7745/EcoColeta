@@ -29,26 +29,26 @@ function NewColeta(props: NewColetaProps) {
     <div className='formNewColeta'>
       { exibirMensagem && <p className={className}>{mensagem}</p> }     
       <FormCamp {...{
-        dados: dados,
-        setDados: setDados,
+        dados,
+        setDados,
         name: 'cliente',
         type: 'text'
       }}/>
       <FormCamp {...{
-        dados: dados,
-        setDados: setDados,
+        dados,
+        setDados,
         name: 'material',
         type: 'text'
       }}/>
       <FormCamp {...{
-        dados: dados,
-        setDados: setDados,
+        dados,
+        setDados,
         name: 'massa',
         type: 'number'
       }}/>
       <FormCamp {...{
-        dados: dados,
-        setDados: setDados,
+        dados,
+        setDados,
         name: 'volume',
         type: 'number'
       }}/>

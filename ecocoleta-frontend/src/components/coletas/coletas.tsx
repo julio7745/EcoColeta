@@ -25,30 +25,30 @@ function Coletas(props: coletasProps) {
   
   const [coletas, setColetas] = useState<ColetaFace[]>([]);
   
-  const fetchData = async () => {
-
-    props.setClassNameOfLoading('loading true')
+  useEffect(() => {
     
-    try {
+    const fetchData = async () => {
+
+      props.setClassNameOfLoading('loading true')
       
-      const response = await axios.get('http://192.168.18.154:3024/getColetas');
-      const coletasData = jwtDecode(response.data.token) as coletasFace; 
-      
-      setColetas( coletasData.coletas || []);
-      
-    } catch (error) {
-      console.error('Erro ao buscar coletas:', error);
+      try {
+        
+        const response = await axios.get('http://192.168.18.154:3024/getColetas');
+        const coletasData = jwtDecode(response.data.token) as coletasFace; 
+        
+        setColetas( coletasData.coletas || []);
+        
+      } catch (error) {
+        console.error('Erro ao buscar coletas:', error);
+      }
+  
+      props.setClassNameOfLoading('loading')
+  
     }
 
-    props.setClassNameOfLoading('loading')
-
-  }
-
-  useEffect(() => {
-       
     fetchData();
 
-  }, []);
+  }, [props]);
   
   if (coletas.length <= 0) {
     return (

@@ -26,10 +26,8 @@ const newColeta = async (req: Request, res: Response) => {
 
   } catch (error) {
     console.log(Error);
+    res.send(500)
   }
-  
-  res.send(500)
-
 }
 
 export default newColeta;

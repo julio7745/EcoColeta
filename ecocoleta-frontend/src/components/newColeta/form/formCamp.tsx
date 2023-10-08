@@ -10,13 +10,14 @@ type DataKeys = keyof {
     material: string,
 };
 
+interface dados {
+    cliente: string,
+    massa: string,  
+    volume: string, 
+    material: string,
+}
 interface FormCampProps {
-    dados: {
-        cliente: string,
-        massa: string,  
-        volume: string, 
-        material: string,
-    },
+    dados: dados,
     setDados: Function,
     name: DataKeys,
     type: string
@@ -36,7 +37,9 @@ function FormCamp(props: FormCampProps) {
     return (
         <div className='campForm'>
             <label htmlFor={props.name}>
-                {capitalizeFirstLetter(props.name)} {props.name === 'massa'? '(kg)' : props.name === 'volume' ? '(L)' : ''}: 
+                {capitalizeFirstLetter(props.name)} {props.name === 'massa'?
+                    '(kg)' : props.name === 'volume' ? '(L)' : ''
+                } 
             </label>
             <input
                 type='text'
@@ -46,7 +49,6 @@ function FormCamp(props: FormCampProps) {
                 onChange={handleChange}
             />
         </div>
-        
     )
 }
 

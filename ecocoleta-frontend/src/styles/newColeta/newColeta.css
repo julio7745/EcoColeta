@@ -1,3 +1,4 @@
+
 .formNewColeta{
     background-color: #ffffffe1;
     height: auto;
@@ -6,7 +7,7 @@
     margin-bottom: 40px;
     justify-content: center;
 }
-.formNewColeta p {
+.formNewColeta p{
     display: block;
     width: 150px;
     margin: 0px auto 10px auto;
@@ -29,7 +30,7 @@
     .formNewColeta{
         padding: 20px 0px;
     }
-    .formNewColeta p {
+    .formNewColeta p{
         width: 250px;
         margin-bottom: 15px;
         font-size: 1rem;
@@ -45,7 +46,7 @@
     .formNewColeta{
         padding: 30px 0px;
     }
-    .formNewColeta p {
+    .formNewColeta p{
         width: 450px;
         margin-bottom: 25px;
         font-size: 1.1rem;
@@ -55,5 +56,4 @@
         font-size: 1.3rem;
         padding: 5px;
     }
-    
 }

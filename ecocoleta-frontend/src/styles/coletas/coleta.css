@@ -1,3 +1,4 @@
+
 .coleta{
     width: 80%;
     max-width: 330px;
@@ -6,7 +7,7 @@
     border: 1px solid black;
     position: relative;
 }
-.coleta p {
+.coleta p{
     display: block;
     margin: 5px;
 }

@@ -5,7 +5,6 @@ interface dados{
     volume: string,
     material: string,
 }
-
 interface ValidaFormDeColetasProps {
     setDados: (Dados: dados) => void,
     dados: dados
@@ -44,15 +43,16 @@ const ValidaFormDeColetas = async (props: ValidaFormDeColetasProps) => {
     });
 
     return null;    
-    
+
 }
 
-
 function formatText(texto: string) {
+
     return texto
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
+    
 }
 
 export default ValidaFormDeColetas;

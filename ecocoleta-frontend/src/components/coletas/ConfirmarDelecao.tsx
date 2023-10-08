@@ -24,7 +24,7 @@ function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
                 (É um tempão!)
             </p>
             <div>
-                <div className='coletaButton editar' 
+                <div className='coletaButton editar'
                     onClick={()=>props.setMostraConfirmacao('confirmacao')}
                 >
                     <strong>Cancelar</strong>

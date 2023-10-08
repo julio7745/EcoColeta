@@ -16,8 +16,8 @@ const deleteColeta = async (req: Request, res: Response) => {
 
     } catch (error) {
         console.log(error);
+        res.send('error')
     }
-
 }
 
 export default deleteColeta;

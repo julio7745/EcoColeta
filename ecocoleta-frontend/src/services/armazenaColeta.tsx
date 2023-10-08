@@ -9,13 +9,12 @@ interface dados{
     volume: string,
     material: string,
 }
-
 interface armazenaColetaProps {
     setMensagem: (mensagem: string) => void,
     setClassName: (className: string) => void,
     setExibirMensagem: (className: boolean) => void,
     setDados: (Dados: dados) => void,
-    dados: dados
+    dados: dados,
     setClassNameOfLoading: (className: string) => void,
 }
 
@@ -53,7 +52,6 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
             console.error('Erro ao armazenar coleta.', error);
     
         }
-
     }
 
     props.setExibirMensagem(true)

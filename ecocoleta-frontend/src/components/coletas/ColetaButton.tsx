@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 import '../../styles/coletas/coletaButton.css';
@@ -16,14 +17,9 @@ function ColetaButton(props: coletaButton) {
     return (
         <div>
             <div className='coletaButton editar' >Editar</div>
-            <div className='coletaButton apagar' 
-                onClick={
-                    () => setTimeout(()=>setMostraConfirmacao('confirmacao visible'), 100)
-                }
-            >
-                Apagar
-            </div>
-
+            <div className='coletaButton apagar' onClick={
+                () => setTimeout(()=>setMostraConfirmacao('confirmacao visible'), 100)
+            }> Apagar </div>
             {
                 mostraConfirmacao && (
                     <ConfirmarDelecao {...{
@@ -36,7 +32,6 @@ function ColetaButton(props: coletaButton) {
             }
         </div>
     )
-
 }
 
 export default ColetaButton;

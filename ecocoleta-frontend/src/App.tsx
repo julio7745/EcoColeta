@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 import './styles/App.css';
@@ -25,7 +26,7 @@ function App() {
         }}/> :           
         currentPage === 'Nova coleta' ? <NewColeta {...{
           setCurrentPage, 
-          setClassNameOfLoading
+          setClassNameOfLoading,
         }}/> :
         currentPage === 'Relatórios' ? 'Relatórios' :
         <Coletas {...{
@@ -33,7 +34,7 @@ function App() {
         }}/> 
       }
       <Loading {...{
-        classNameOfLoading
+        classNameOfLoading,
       }}/>
       <Footer/>
     </div>
