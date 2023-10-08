@@ -2,7 +2,8 @@
 import axios from 'axios';
 import React from 'react';
 
-import '../../styles/coletas/confirmarDelecao.css';
+import '../../../styles/coletas/confirmarDelecao.css';
+
 
 interface ConfirmarDelecaoProps {
     mostraConfirmacao: string,

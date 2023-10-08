@@ -9,24 +9,21 @@ const newColeta = async (req: Request, res: Response) => {
 
   try {
 
-    const coletas = await Coleta.find();
-        
     const coleta = new Coleta({
-      n: coletas.length + 1,
       material: material,
-      massa: massa,
-      volume: volume,
+      massa: parseFloat(massa),
+      volume: parseFloat(volume),
       cliente: cliente,
     });
   
     await coleta.save();
 
-    res.send(200)
+    res.sendStatus(200)
     return;
 
   } catch (error) {
-    console.log(Error);
-    res.send(500)
+    console.log(error);
+    res.sendStatus(500)
   }
 }
 

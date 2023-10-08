@@ -11,12 +11,12 @@ const deleteColeta = async (req: Request, res: Response) => {
 
         await Coleta.findOneAndRemove({ _id })
         
-        res.send('ok')
+        res.sendStatus(200)
         return;
 
     } catch (error) {
         console.log(error);
-        res.send('error')
+        res.sendStatus(500)
     }
 }
 

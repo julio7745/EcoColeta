@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import '../../styles/coletas/coletaButton.css';
 
-import ConfirmarDelecao from './ConfirmarDelecao'
+import ConfirmarDelecao from './confirmarDelecao/ConfirmarDelecao'
 
 interface coletaButton {
     _id: string,
