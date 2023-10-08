@@ -6,7 +6,7 @@ import '../../styles/coletas/coleta.css';
 import ColetaButton from './ColetaButton';
 
 interface ColetaFace {
-    n: number;
+    _id: string;
     material: string;
     massa: string;
     volume: string;
@@ -22,7 +22,7 @@ function Coleta(props: ColetaFace) {
             <p>Volume: {props.volume}</p>
             <p>Cliente: {props.cliente}</p>
             <ColetaButton {...{
-                n: props.n,
+                _id: props._id,
             }}/>
         </div>
     );

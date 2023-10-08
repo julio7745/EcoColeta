@@ -5,7 +5,7 @@ import '../../styles/coletas/coletaButton.css';
 import ConfirmarDelecao from './ConfirmarDelecao'
 
 interface coletaButton {
-    n: number,
+    _id: string,
 }
 
 function ColetaButton(props: coletaButton) {
@@ -26,7 +26,7 @@ function ColetaButton(props: coletaButton) {
                     <ConfirmarDelecao {...{
                         mostraConfirmacao,
                         setMostraConfirmacao,
-                        n: props.n
+                        _id: props._id
                     }}/>
                 )
             }

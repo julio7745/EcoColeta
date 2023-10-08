@@ -7,7 +7,7 @@ import '../../styles/coletas/confirmarDelecao.css';
 interface ConfirmarDelecaoProps {
     mostraConfirmacao: string,
     setMostraConfirmacao: (className: string) => void,
-    n: number,
+    _id: string,
   }
 
 function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
@@ -30,7 +30,7 @@ function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
                 </div>
                 <div className='coletaButton apagar' 
                     onClick={async () => {
-                        await axios.delete(`http://192.168.18.154:3024/delete/${props.n}`)
+                        await axios.delete(`http://192.168.18.154:3024/delete/${props._id}`)
                         window.location.reload();
                     }}
                 >
@@ -39,7 +39,6 @@ function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
             </div>
         </div>
     )
-
 }
 
 export default ConfirmarDelecao;

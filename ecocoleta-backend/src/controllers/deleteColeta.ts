@@ -5,20 +5,17 @@ import Coleta from '../models/coletaModel'
 
 const deleteColeta = async (req: Request, res: Response) => {
   
-    const n = parseInt(req.params.n);
+    const _id = req.params.id;
 
     try {
 
-        const coletas = await Coleta.find();
+        await Coleta.findOneAndRemove({ _id })
         
-        for (let coleta of coletas){
-            console.log(coleta);
-        }
-        
+        res.send('ok')
         return;
 
     } catch (error) {
-        console.log(Error);
+        console.log(error);
     }
 
 }

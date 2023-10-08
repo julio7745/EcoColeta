@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.get('/getColetas', (req: Request, res: Response) => getColetas(req, res))
 router.post('/newColeta', (req: Request, res: Response) => newColetas(req, res))
-router.delete('/delete/:n', (req: Request, res: Response) => deleteColeta(req, res))
+router.delete('/delete/:id', (req: Request, res: Response) => deleteColeta(req, res))
 
 export default router;

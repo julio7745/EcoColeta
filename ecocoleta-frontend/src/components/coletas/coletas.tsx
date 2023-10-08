@@ -8,7 +8,7 @@ import '../../styles/coletas/coletas.css';
 import Coleta from './ColetaText';
 
 interface ColetaFace {
-  n: number;
+  _id: string;
   material: string;
   massa: string;
   volume: string;
@@ -56,8 +56,8 @@ function Coletas() {
           coletas.map(coleta => (
             <Coleta {
               ...{
-              key: coleta.n,
-              n: coleta.n,
+              key: coleta._id,
+              _id: coleta._id,
               material: coleta.material,
               massa: coleta.massa,
               volume: coleta.volume,
