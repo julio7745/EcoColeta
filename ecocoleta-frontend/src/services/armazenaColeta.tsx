@@ -28,30 +28,40 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
 
     props.setClassNameOfLoading('loading true')
 
-    //const erro = ValidaFormDeColetas({...{coleta: props.coleta, setDados: props.setColeta, }});
+    const erro = ValidaFormDeColetas({...{coleta: props.coleta, setDados: props.setColeta, }});
     
-    /*if (erro) {
+    if (erro) {
 
         props.setMensagem(erro)
         props.setClassNameOfFeedback('erro')
 
-    }else{*/
+    }else{
 
         try {
 
             if (props.editOrCreate === 'create') {
                 
-                await axios.post('http://192.168.18.154:3024/newColeta', props.coleta);
-    
-                props.setMensagem('Coleta armazenada com sucesso!'); 
-                props.setClassNameOfFeedback('sucesso')
+                const response = await axios.post('http://192.168.18.154:3024/newColeta', props.coleta);
+                const respondeData = jwtDecode(response.data.token) as responseData; 
 
-                props.setColeta({
-                    massa: '',
-                    volume: '',
-                    cliente: '',
-                    material: '',
-                });
+                if(respondeData.sucess === 1){
+                    
+                    props.setMensagem('Coleta armazenada com sucesso!'); 
+                    props.setClassNameOfFeedback('sucesso')
+
+                    props.setColeta({
+                        massa: '',
+                        volume: '',
+                        cliente: '',
+                        material: '',
+                    });
+
+                }else{
+
+                    props.setMensagem(respondeData.erro); 
+                    props.setClassNameOfFeedback('erro')
+
+                }
 
             }else if (props.editOrCreate === 'edit') {
                 
@@ -79,7 +89,7 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
             console.error(error);
     
         }
-    //}
+    }
 
     props.setExibirMensagem(true)
     props.setClassNameOfLoading('loading')

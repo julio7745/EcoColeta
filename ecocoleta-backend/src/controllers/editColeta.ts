@@ -5,7 +5,6 @@ import { Request, Response } from 'express';
 import Coleta from '../models/coletaModel'
 import ValidaFormDeColetas from '../services/validaFormDeColeta';
 
-
 const editColeta = async (req: Request, res: Response) => {
   
   try {

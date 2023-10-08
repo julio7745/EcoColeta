@@ -10,9 +10,6 @@ interface ValidaFormDeColetasProps {
 }
 
 const ValidaFormDeColetas = (props: ValidaFormDeColetasProps) => {
-
-    console.log(props);
-    
     
     const newcliente = formatText(props.coleta.cliente)
     if (newcliente.length <= 0) {
