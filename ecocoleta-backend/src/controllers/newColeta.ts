@@ -10,10 +10,10 @@ const newColeta = async (req: Request, res: Response) => {
   try {
     
     const coleta = new Coleta({
+      cliente: cliente,
       material: material,
       massa: parseFloat(massa),
       volume: parseFloat(volume),
-      cliente: cliente,
     });
   
     await coleta.save();

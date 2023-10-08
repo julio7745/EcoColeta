@@ -23,10 +23,10 @@ interface NewColetaProps {
 
 function NewColeta(props: NewColetaProps) {
 
-  const [dados, setDados] = useState({
-    cliente: '',
+  const [coleta, setColeta] = useState({
     massa: '',
     volume: '',
+    cliente: '',
     material: '',
   });
 
@@ -38,32 +38,32 @@ function NewColeta(props: NewColetaProps) {
     <div className='formNewColeta'>
       { exibirMensagem && <p className={ClassNameOfFeedback}>{mensagem}</p> }     
       <FormCamp {...{
-        dados,
-        setDados,
+        coleta,
+        setColeta,
+        type: 'text',
         name: 'cliente',
-        type: 'text',
         editOrCreate: props.editOrCreate,
         coletaEmEdicao: props.coletaEmEdicao,
       }}/>
       <FormCamp {...{
-        dados,
-        setDados,
+        coleta,
+        setColeta,
+        type: 'text',
         name: 'material',
-        type: 'text',
         editOrCreate: props.editOrCreate,
         coletaEmEdicao: props.coletaEmEdicao,
       }}/>
       <FormCamp {...{
-        dados,
-        setDados,
+        coleta,
+        setColeta,
         name: 'massa',
         type: 'number',
         editOrCreate: props.editOrCreate,
         coletaEmEdicao: props.coletaEmEdicao,
       }}/>
       <FormCamp {...{
-        dados,
-        setDados,
+        coleta,
+        setColeta,
         name: 'volume',
         type: 'number',
         editOrCreate: props.editOrCreate,
@@ -72,18 +72,18 @@ function NewColeta(props: NewColetaProps) {
       <button onClick={
         ()=>{
           armazenaColeta({...{
-            dados,
+            coleta,
+            editOrCreate: props.editOrCreate,
+            setColeta,
             setMensagem,
-            setClassNameOfFeedback,
-            setDados,
             setExibirMensagem,
+            setClassNameOfFeedback,
             setClassNameOfLoading: props.setClassNameOfLoading,
-            editOrCreate: props.editOrCreate
           }})
         }
       }>{ props.editOrCreate === 'edit' ? 'Salvar coleta' : 'Criar Coleta' }</button>
     </div>
-  )
+  );
 }
 
 export default NewColeta;

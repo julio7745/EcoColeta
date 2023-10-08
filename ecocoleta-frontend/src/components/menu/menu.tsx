@@ -12,7 +12,7 @@ interface ColetaFace {
   cliente: string,
   material: string,
 }
-interface HeaderProps {
+interface MenuProps {
   currentPage: string,
   editOrCreate: string,
   setCurrentPage: (_: string) => void,
@@ -20,7 +20,7 @@ interface HeaderProps {
   setColetaEmEdicao: (_: ColetaFace) => void,
 }
 
-function Menu(props: HeaderProps) {
+function Menu(props: MenuProps) {
 
   return(
     <div className='menu'>

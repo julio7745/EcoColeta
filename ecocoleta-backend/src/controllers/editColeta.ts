@@ -1,25 +1,28 @@
 
-import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
+import { Request, Response } from 'express';
 
 import Coleta from '../models/coletaModel'
-
 import ValidaFormDeColetas from '../services/validaFormDeColeta';
+
 
 const editColeta = async (req: Request, res: Response) => {
   
   try {
 
     const dados = req.body
-    const erro = ValidaFormDeColetas({ dados: dados })
 
-    if (erro) {
-      console.log(erro);
-      const token = jwt.sign({ erro: erro, sucess: 0 }, 'secretpassword');
+    const retorno = ValidaFormDeColetas({ coleta: dados })
+
+    if ( typeof retorno === 'string') {
+      const token = jwt.sign({ erro: retorno, sucess: 0 }, 'secretpassword');
       res.json({ token });
       return
     }
 
+    dados.cliente = retorno.newcliente
+    dados.material = retorno.newMaterial
+    
     const coleta = await Coleta.findById(dados._id);
 
     if (!coleta) {
@@ -28,10 +31,10 @@ const editColeta = async (req: Request, res: Response) => {
       return
     }
 
-    coleta.material = dados.material;
     coleta.massa = dados.massa;
     coleta.volume = dados.volume;
     coleta.cliente = dados.cliente;
+    coleta.material = dados.material;
 
     await coleta.save();
     

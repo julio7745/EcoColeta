@@ -4,20 +4,20 @@ import jwtDecode from 'jwt-decode';
 
 import ValidaFormDeColetas from "./validaFormDeColeta"
 
-interface dados{
-    cliente: string,
+interface ColetaFace {
     massa: string,
     volume: string,
+    cliente: string,
     material: string,
 }
-interface armazenaColetaProps{
-    dados: dados,
+interface armazenaColetaProps {
+    coleta: ColetaFace,
     editOrCreate: string,
-    setMensagem: (mensagem: string) => void,
-    setClassNameOfFeedback: (className: string) => void,
-    setExibirMensagem: (className: boolean) => void,
-    setDados: (Dados: dados) => void,
-    setClassNameOfLoading: (className: string) => void,
+    setMensagem: (_: string) => void,
+    setColeta: (_: ColetaFace) => void,
+    setExibirMensagem: (_: boolean) => void,
+    setClassNameOfLoading: (_: string) => void,
+    setClassNameOfFeedback: (_: string) => void,
 }
 interface responseData{
     erro: string,
@@ -28,35 +28,35 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
 
     props.setClassNameOfLoading('loading true')
 
-    const erro = await ValidaFormDeColetas({...{dados: props.dados, setDados: props.setDados, }});
+    //const erro = ValidaFormDeColetas({...{coleta: props.coleta, setDados: props.setColeta, }});
     
-    if (erro) {
+    /*if (erro) {
 
         props.setMensagem(erro)
         props.setClassNameOfFeedback('erro')
 
-    }else{
+    }else{*/
 
         try {
 
             if (props.editOrCreate === 'create') {
                 
-                await axios.post('http://192.168.18.154:3024/newColeta', props.dados);
+                await axios.post('http://192.168.18.154:3024/newColeta', props.coleta);
     
                 props.setMensagem('Coleta armazenada com sucesso!'); 
                 props.setClassNameOfFeedback('sucesso')
 
-                props.setDados({
-                    cliente: '',
+                props.setColeta({
                     massa: '',
                     volume: '',
+                    cliente: '',
                     material: '',
                 });
 
             }else if (props.editOrCreate === 'edit') {
                 
                 
-                const response = await axios.put('http://192.168.18.154:3024/editColeta', props.dados);
+                const response = await axios.put('http://192.168.18.154:3024/editColeta', props.coleta);
                 const respondeData = jwtDecode(response.data.token) as responseData; 
                 
                 if(respondeData.sucess === 1){
@@ -79,7 +79,7 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
             console.error(error);
     
         }
-    }
+    //}
 
     props.setExibirMensagem(true)
     props.setClassNameOfLoading('loading')

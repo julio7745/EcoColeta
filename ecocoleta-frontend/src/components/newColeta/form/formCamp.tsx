@@ -4,32 +4,32 @@ import React, { useEffect } from 'react';
 import '../../../styles/newColeta/formCamp.css';
 
 type DataKeys = keyof {
-    cliente: string,
     massa: string,
     volume: string,
+    cliente: string,
     material: string,
 };
 
-interface dados {
-    cliente: string,
+interface ColetaFace {
     massa: string,  
     volume: string, 
+    cliente: string,
     material: string,
 }
 interface FormCampProps {
-    dados: dados,
-    setDados: Function,
-    name: DataKeys,
     type: string,
-    coletaEmEdicao: dados,
+    name: DataKeys,
+    coleta: ColetaFace,
     editOrCreate: string,
+    coletaEmEdicao: ColetaFace,
+    setColeta: (_: ColetaFace) => void,
 }
 
 function FormCamp(props: FormCampProps) {
 
     const loadData = async () => {
         if(props.editOrCreate === 'edit'){
-            props.setDados(props.coletaEmEdicao)
+            props.setColeta(props.coletaEmEdicao);
         }
     }
     
@@ -38,7 +38,7 @@ function FormCamp(props: FormCampProps) {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        props.setDados({ ...props.dados, [name]: value });
+        props.setColeta({ ...props.coleta, [name]: value });
     };
 
     function capitalizeFirstLetter(str: string): string {
@@ -48,16 +48,16 @@ function FormCamp(props: FormCampProps) {
     return (
         <div className='campForm'>
             <label htmlFor={props.name}>
-                {capitalizeFirstLetter(props.name)} {props.name === 'massa'?
+                {capitalizeFirstLetter(props.name)} {props.name === 'massa' ?
                     '(kg)' : props.name === 'volume' ? '(L)' : ''
                 } 
             </label>
             <input
                 type='text'
                 name={props.name}
-                placeholder={capitalizeFirstLetter(props.name)}
-                value={props.dados[props.name]}
                 onChange={handleChange}
+                value={props.coleta[props.name]}
+                placeholder={capitalizeFirstLetter(props.name)}
             />
         </div>
     )

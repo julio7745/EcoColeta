@@ -10,7 +10,7 @@ interface ColetaFace {
   cliente: string,
   material: string,
 }
-interface HeaderProps {
+interface ButtonMenuProps {
   page: string,
   currentPage: string,
   editOrCreate: string,
@@ -19,7 +19,7 @@ interface HeaderProps {
   setColetaEmEdicao: (_: ColetaFace) => void,
 }
 
-function ButtonMenu(props: HeaderProps) {
+function ButtonMenu(props: ButtonMenuProps) {
 
   const className = props.currentPage === props.page ? 'buttonMenu select' : 'buttonMenu'; 
 

@@ -4,7 +4,7 @@ import React from 'react';
 import '../../styles/loading/loading.css';
 
 interface LoadingProps{
-    classNameOfLoading: string
+    classNameOfLoading: string,
 }
 
 function Loading(props: LoadingProps) {

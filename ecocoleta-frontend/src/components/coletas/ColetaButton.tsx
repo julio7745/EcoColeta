@@ -12,7 +12,7 @@ interface ColetaFace {
     cliente: string,
     material: string,
 }
-interface coletaButton {
+interface coletaButtonProps {
     coleta: ColetaFace,
     setCurrentPage: (_: string) => void,
     setEditOrCreate: (_: string) => void,
@@ -20,7 +20,7 @@ interface coletaButton {
     setClassNameOfLoading: (_: string) => void,
 }
 
-function ColetaButton(props: coletaButton) {
+function ColetaButton(props: coletaButtonProps) {
 
     const [mostraConfirmacao, setMostraConfirmacao] = useState('confirmacao')
 
