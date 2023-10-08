@@ -6,9 +6,10 @@ import '../../styles/coletas/confirmarDelecao.css';
 
 interface ConfirmarDelecaoProps {
     mostraConfirmacao: string,
-    setMostraConfirmacao: (className: string) => void,
     _id: string,
-  }
+    setMostraConfirmacao: (className: string) => void,
+    setClassNameOfLoading: (className: string) => void
+}
 
 function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
 
@@ -30,8 +31,10 @@ function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
                 </div>
                 <div className='coletaButton apagar' 
                     onClick={async () => {
+                        props.setClassNameOfLoading('loading true')
                         await axios.delete(`http://192.168.18.154:3024/delete/${props._id}`)
                         window.location.reload();
+                        props.setClassNameOfLoading('loading')
                     }}
                 >
                     <strong>Confimar</strong>

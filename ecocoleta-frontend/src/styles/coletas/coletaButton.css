@@ -2,13 +2,29 @@
     margin: 5px;
     padding: 10px;
     display: inline-block;
-    width: 70px;
     text-align: center;
     border: 1px solid black;
+    cursor: pointer;
+    width: 50px;
+    font-size: .8rem;
 }
 .editar{
     background-color: #008000;
 }
 .apagar{
     background-color: #a80000;
+}
+
+@media screen and (min-width: 300px) {
+    .coletaButton{
+        width: 70px;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .coletaButton{
+        width: 90px;
+        font-size: 1.1rem;
+    }
 }

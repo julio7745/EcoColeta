@@ -6,6 +6,7 @@ import ConfirmarDelecao from './ConfirmarDelecao'
 
 interface coletaButton {
     _id: string,
+    setClassNameOfLoading: (className: string) => void
 }
 
 function ColetaButton(props: coletaButton) {
@@ -16,7 +17,9 @@ function ColetaButton(props: coletaButton) {
         <div>
             <div className='coletaButton editar' >Editar</div>
             <div className='coletaButton apagar' 
-                onClick={()=>setMostraConfirmacao('confirmacao visible')}
+                onClick={
+                    () => setTimeout(()=>setMostraConfirmacao('confirmacao visible'), 100)
+                }
             >
                 Apagar
             </div>
@@ -26,7 +29,8 @@ function ColetaButton(props: coletaButton) {
                     <ConfirmarDelecao {...{
                         mostraConfirmacao,
                         setMostraConfirmacao,
-                        _id: props._id
+                        _id: props._id,
+                        setClassNameOfLoading: props.setClassNameOfLoading 
                     }}/>
                 )
             }

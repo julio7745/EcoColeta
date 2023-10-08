@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 
 import '../../styles/newColeta/newColeta.css';
 
-import FormCamp from './form/formCamp'
+import FormCamp from './form/FormCamp'
 
 import armazenaColeta from '../../services/armazenaColeta'
 
 interface NewColetaProps {
   setCurrentPage: (page: string) => void,
+  setClassNameOfLoading: (className: string) => void,
 }
 
 function NewColeta(props: NewColetaProps) {
@@ -52,11 +53,12 @@ function NewColeta(props: NewColetaProps) {
         type: 'number'
       }}/>
       <button onClick={()=>armazenaColeta({...{
-        setMensagem: setMensagem,
-        setClassName: setClassName,
-        setDados: setDados,
-        setExibirMensagem: setExibirMensagem,
-        dados: dados
+        setMensagem,
+        setClassName,
+        setDados,
+        setExibirMensagem,
+        dados,
+        setClassNameOfLoading: props.setClassNameOfLoading
       }})}>Criar Coleta</button>
     </div>
   )

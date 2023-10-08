@@ -26,6 +26,6 @@ app.use(routes);
 
 app.on('conected', () => { 
     app.listen(3024, '0.0.0.0', () => { 
-        console.log(`Host on in: http://192.168.18.154:3024 `); 
+        console.log(`Host on in port 3024 `); 
     });
 });

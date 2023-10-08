@@ -17,12 +17,18 @@ interface ColetaFace {
 interface coletasFace {
   coletas: ColetaFace[]
 }
+interface coletasProps {
+  setClassNameOfLoading: (className: string) => void
+}
 
-function Coletas() {
+function Coletas(props: coletasProps) {
   
   const [coletas, setColetas] = useState<ColetaFace[]>([]);
   
   const fetchData = async () => {
+
+    props.setClassNameOfLoading('loading true')
+    
     try {
       
       const response = await axios.get('http://192.168.18.154:3024/getColetas');
@@ -33,6 +39,9 @@ function Coletas() {
     } catch (error) {
       console.error('Erro ao buscar coletas:', error);
     }
+
+    props.setClassNameOfLoading('loading')
+
   }
 
   useEffect(() => {
@@ -62,6 +71,7 @@ function Coletas() {
               massa: coleta.massa,
               volume: coleta.volume,
               cliente: coleta.cliente,
+              setClassNameOfLoading: props.setClassNameOfLoading 
             }}/>
           ))
         }

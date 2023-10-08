@@ -16,9 +16,12 @@ interface armazenaColetaProps {
     setExibirMensagem: (className: boolean) => void,
     setDados: (Dados: dados) => void,
     dados: dados
+    setClassNameOfLoading: (className: string) => void,
 }
 
 const armazenaColeta = async (props: armazenaColetaProps) => {
+
+    props.setClassNameOfLoading('loading true')
 
     const erro = await ValidaFormDeColetas({...{dados: props.dados, setDados: props.setDados, }});
     
@@ -54,6 +57,7 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
     }
 
     props.setExibirMensagem(true)
+    props.setClassNameOfLoading('loading')
 
 }
 

@@ -11,6 +11,7 @@ interface ColetaFace {
     massa: string;
     volume: string;
     cliente: string;
+    setClassNameOfLoading: (className: string) => void
 }
 
 function Coleta(props: ColetaFace) {
@@ -23,6 +24,7 @@ function Coleta(props: ColetaFace) {
             <p>Cliente: {props.cliente}</p>
             <ColetaButton {...{
                 _id: props._id,
+                setClassNameOfLoading: props.setClassNameOfLoading 
             }}/>
         </div>
     );
