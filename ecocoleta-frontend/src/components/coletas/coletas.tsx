@@ -31,10 +31,12 @@ function Coletas(props: coletasProps) {
   const fetchData = async () => {
       
     props.setClassNameOfLoading('loading true');
+
+    const apiBackEnd = process.env.REACT_APP_API_BACKEND;
     
     try {
       
-      const response = await axios.get('http://192.168.18.154:3024/getColetas');
+      const response = await axios.get(`${apiBackEnd}/getColetas`);
       const coletasData = jwtDecode(response.data.token) as coletasFace; 
       
       setColetas( coletasData.coletas || []);

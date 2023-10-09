@@ -27,6 +27,8 @@ interface responseData{
 const armazenaColeta = async (props: armazenaColetaProps) => {
 
     props.setClassNameOfLoading('loading true')
+    
+    const apiBackEnd = process.env.REACT_APP_API_BACKEND;
 
     const erro = ValidaFormDeColetas({...{coleta: props.coleta, setDados: props.setColeta, }});
     
@@ -41,7 +43,7 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
 
             if (props.editOrCreate === 'create') {
                 
-                const response = await axios.post('http://192.168.18.154:3024/newColeta', props.coleta);
+                const response = await axios.post(`${apiBackEnd}/newColeta`, props.coleta);
                 const respondeData = jwtDecode(response.data.token) as responseData; 
 
                 if(respondeData.sucess === 1){
@@ -66,7 +68,7 @@ const armazenaColeta = async (props: armazenaColetaProps) => {
             }else if (props.editOrCreate === 'edit') {
                 
                 
-                const response = await axios.put('http://192.168.18.154:3024/editColeta', props.coleta);
+                const response = await axios.put(`${apiBackEnd}/editColeta`, props.coleta);
                 const respondeData = jwtDecode(response.data.token) as responseData; 
                 
                 if(respondeData.sucess === 1){
