@@ -41,7 +41,7 @@ function Menu(props: MenuProps) {
         setColetaEmEdicao: props.setColetaEmEdicao,
       }}/>
       <ButtonMenu {...{
-        page: 'Relatórios',
+        page: 'Relatório',
         currentPage: props.currentPage,
         editOrCreate: props.editOrCreate,
         setCurrentPage: props.setCurrentPage,

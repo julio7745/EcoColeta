@@ -8,6 +8,7 @@ import Header from './components/header/Header';
 import Coletas from "./components/coletas/Coletas";
 import Loading from './components/loading/Loading';
 import NewColeta from "./components/newColeta/NewColeta";
+import Relatorio from "./components/relatorio/relatorio";
 
 function App() {
   
@@ -45,7 +46,9 @@ function App() {
           coletaEmEdicao,
           setClassNameOfLoading,
         }}/> :
-        currentPage === 'Relatórios' ? 'Relatórios' :
+        currentPage === 'Relatório' ? <Relatorio {...{
+          setClassNameOfLoading,
+        }}/> :
         <Coletas {...{
           setCurrentPage, 
           setEditOrCreate,
