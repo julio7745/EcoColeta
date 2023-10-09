@@ -2,7 +2,7 @@
   "engines": {
     "node": "18.16.1"
   },
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "@types/express": "^4.17.18",
     "@types/mongoose": "^5.11.97",
