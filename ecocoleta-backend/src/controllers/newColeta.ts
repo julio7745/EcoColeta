@@ -7,6 +7,11 @@ import Coleta from '../models/coletaModel'
 import ValidaFormDeColetas from '../services/validaFormDeColeta';
 
 const newColeta = async (req: Request, res: Response) => {
+
+  if (!process.env.SECRET) {
+    throw new Error('Erro na variavel de ambiente SECRET.');
+  }
+  const secret = process.env.SECRET
   
   const { material, massa, volume, cliente } = req.body;
 
@@ -20,7 +25,7 @@ const newColeta = async (req: Request, res: Response) => {
   const retorno = ValidaFormDeColetas({ coleta: dados })
 
   if ( typeof retorno === 'string') {
-    const token = jwt.sign({ erro: retorno, sucess: 0 }, 'secretpassword');
+    const token = jwt.sign({ erro: retorno, sucess: 0 }, secret);
     res.json({ token });
     return
   }
@@ -37,13 +42,13 @@ const newColeta = async (req: Request, res: Response) => {
 
     await coleta.save();
 
-    const token = jwt.sign({ erro: retorno, sucess: 1 }, 'secretpassword');
+    const token = jwt.sign({ erro: retorno, sucess: 1 }, secret);
     res.json({ token });
     return
 
   } catch (error) {
     console.log(error);
-    const token = jwt.sign({ erro: 'Houve uma falha no BackEnd, entre em contato com o desenvolvedor.', sucess: 0 }, 'secretpassword');
+    const token = jwt.sign({ erro: 'Houve uma falha no BackEnd, entre em contato com o desenvolvedor.', sucess: 0 }, secret);
     res.json({ token });
     return
   }
