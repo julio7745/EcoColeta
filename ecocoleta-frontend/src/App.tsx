@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import './styles/App.css';
 
-import Footer from "./components/footer/Footer.tsx";
+import Footer from "./components/footer/Footer";
 import Header from './components/header/Header';
 import Coletas from "./components/coletas/Coletas";
 import Loading from './components/loading/Loading';
