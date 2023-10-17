@@ -13,6 +13,8 @@ interface ConfirmarDelecaoProps {
 
 function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
 
+    const apiBackEnd = process.env.REACT_APP_API_BACKEND;
+
     return(
         <div className={props.mostraConfirmacao}>
             <p>
@@ -32,7 +34,7 @@ function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
                 <div className='coletaButton apagar' 
                     onClick={async () => {
                         props.setClassNameOfLoading('loading true')
-                        await axios.delete(`http://192.168.18.154:3024/delete/${props._id}`)
+                        await axios.delete(`${apiBackEnd}/${props._id}`)
                         window.location.reload();
                         props.setClassNameOfLoading('loading')
                     }}
