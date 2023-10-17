@@ -34,7 +34,7 @@ function ConfirmarDelecao(props: ConfirmarDelecaoProps) {
                 <div className='coletaButton apagar' 
                     onClick={async () => {
                         props.setClassNameOfLoading('loading true')
-                        await axios.delete(`${apiBackEnd}/${props._id}`)
+                        await axios.delete(`${apiBackEnd}/delete/${props._id}`)
                         window.location.reload();
                         props.setClassNameOfLoading('loading')
                     }}
