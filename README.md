@@ -2,6 +2,10 @@
 
 ### [Link para o projeto em funcionamento 🔗🌍](https://ecocoleta.onrender.com/)
 
+## Proposta de Criação 📝
+
+Desenvolva uma aplicação web que atenda aos requisitos essenciais de um coletor de resíduos. Esta aplicação permitirá o registro de coletas de resíduos recicláveis, incluindo informações vitais, como o tipo de resíduo, sua massa e volume, e a associação com clientes específicos. Além disso, possibilitará a visualização de todas as coletas realizadas, a atualização de registros existentes e a geração de relatórios totalizadores. Para garantir a eficiência e a persistência dos dados, será empregada uma sólida arquitetura de software front-end e back-end, com os dados armazenados de forma acessível por meio de um serviço RESTful.
+
 ## Descrição do Projeto 📝
 
 O projeto "EcoColeta" tem como objetivo principal criar uma aplicação web para a gestão de coletas de resíduos recicláveis. Esta aplicação permite que os usuários cadastrem coletas, registrem informações sobre o tipo de resíduo, massa, volume e o cliente relacionado. Além disso, fornece funcionalidades de listagem, atualização e geração de relatórios totalizadores das coletas realizadas. Tudo isso com um design responsivo e atraente.
