@@ -44,7 +44,7 @@ O projeto "EcoColeta" tem como objetivo principal criar uma aplicação web para
          SECRET = 'Qualquer Coisa'
          ```
       3. Substitua `'string de conexão mongoDB'` e `'Qualquer Coisa'` por seus respectivos dados.
-    4. Execute o comando `node server.js` para iniciar o servidor backend.
+    4. Execute o comando `npx nodemon server.ts` para iniciar o servidor backend.
 6. **Executando Front End:**
     1. Apartir da raiz, navegue até a pasta `./ecocoleta-frontend` no terminal.
     2. Execute o comando `npm install` para instalar as dependências.
