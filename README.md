@@ -40,7 +40,7 @@ O projeto "EcoColeta" tem como objetivo principal criar uma aplicação web para
        1. Crie um arquivo `.env`, na pasta atual e edite-o com um editor de texto.
        2. Coloque o seguinte texto: <br>
          ```
-         LOGIN = 'string de conexão mongoDB'
+         MONGO = 'string de conexão mongoDB'
          SECRET = 'Qualquer Coisa'
          ```
       3. Substitua `'string de conexão mongoDB'` e `'Qualquer Coisa'` por seus respectivos dados.
